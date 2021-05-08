@@ -4,6 +4,8 @@ import { normalize } from 'styled-normalize';
 const GlobalStyles = createGlobalStyle`
   ${normalize}
 
+  @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;700&display=swap');
+
   * {
     box-sizing: border-box;
     margin: 0;
@@ -11,7 +13,8 @@ const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: ${({ theme: { colors } }) => colors.grey};
+    font-family: 'Barlow', sans-serif;
   }
 `;
 
