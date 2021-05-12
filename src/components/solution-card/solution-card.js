@@ -14,7 +14,7 @@ const SolutionCard = ({
   productLink,
   productName,
 }) => (
-  <SolutionCardStyled maxWidth={241}>
+  <SolutionCardStyled data-testid="solution-card" maxWidth={241}>
     <Image src={productImage} alt={productName} />
     <Heading
       fontSize="medium"
