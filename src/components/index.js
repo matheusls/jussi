@@ -8,5 +8,6 @@ export { default as Image } from './image/image';
 export { default as SectionAbout } from './section-about/section-about';
 export { default as SectionContact } from './section-contact/section-contact';
 export { default as SectionStores } from './section-stores/section-stores';
+export { default as SolutionCard } from './solution-card/solution-card';
 export { default as Text } from './text/text';
 export { default as UnorderedList } from './unordered-list/unordered-list';
