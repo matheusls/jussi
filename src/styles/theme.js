@@ -15,4 +15,8 @@ const theme = {
   },
 };
 
+export const colorAliases = Object.keys(theme.colors);
+
+export const fontSizeAliases = Object.keys(theme.fontSizes);
+
 export default theme;
