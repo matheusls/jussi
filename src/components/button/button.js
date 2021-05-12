@@ -1,11 +1,13 @@
 import { themeGet } from '@styled-system/theme-get';
-import { oneOf } from 'prop-types';
+import { oneOf, string } from 'prop-types';
 import { compose, layout, space } from 'styled-system';
 import styled from 'styled-components';
 
 import { getButtonVariation, buttonVariations } from './get-button-variation';
 
-const Button = styled.button`
+const Button = styled.button.attrs(({ href }) => ({
+  as: href ? 'a' : 'button',
+}))`
   background: none;
   border-style: solid;
   border-width: 1px;
@@ -27,11 +29,13 @@ const Button = styled.button`
 
 Button.defaultProps = {
   borderRadiusStyle: 'normal',
+  href: null,
   variation: 'green',
 };
 
 Button.propTypes = {
   borderRadiusStyle: oneOf(['normal', 'pill']),
+  href: string,
   variation: oneOf(Object.keys(buttonVariations)),
 };
 

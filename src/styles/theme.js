@@ -5,6 +5,7 @@ const theme = {
     greyDark: '#5b5b5b',
     green: '#03ffa5',
     pink: '#ee0e7d',
+    transparent: 'transparent',
     white: '#fff',
   },
   fontSizes: {

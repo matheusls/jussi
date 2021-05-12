@@ -1,3 +1,4 @@
+export { default as Button } from './button/button';
 export { default as Container } from './container/container';
 export { default as Heading } from './heading/heading';
 export { default as Image } from './image/image';

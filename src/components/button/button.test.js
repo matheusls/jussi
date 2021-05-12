@@ -13,6 +13,19 @@ describe('<Button />', () => {
     expect(screen.getByText(/button component/i)).toBeInTheDocument();
   });
 
+  it('should render Button as link component correctly', () => {
+    const testUrl = 'http://test-link/';
+
+    render(<Button href={testUrl}>button as link component</Button>);
+
+    const link = screen.getByRole('link', {
+      name: /button as link component/i,
+    });
+
+    expect(link).toBeInTheDocument();
+    expect(link).toHaveAttribute('href', testUrl);
+  });
+
   it.each(buttonVariationNames)(
     '%# should render Button with variation %s',
     (variation) => {
