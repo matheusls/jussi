@@ -1,5 +1,6 @@
 export { default as Button } from './button/button';
 export { default as Container } from './container/container';
+export { default as Footer } from './footer/footer';
 export { default as Heading } from './heading/heading';
 export { default as Icon } from './icon/icon';
 export { default as Image } from './image/image';
