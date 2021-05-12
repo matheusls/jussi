@@ -42,7 +42,7 @@
     "lint:fix": "eslint src --fix --max-warnings=0"
   },
   "lint-staged": {
-    "./src/**/*": [
+    "./src/**/*.js": [
       "yarn lint:fix",
       "yarn test --findRelatedTests --bail"
     ]
