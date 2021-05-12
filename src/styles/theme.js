@@ -8,10 +8,10 @@ const theme = {
     white: '#fff',
   },
   fontSizes: {
-    small: 0.75,
-    paragraph: 1,
-    large: 2,
-    xlarge: 4,
+    small: '0.75rem',
+    medium: '1rem',
+    large: '2rem',
+    xlarge: '4rem',
   },
 };
 
