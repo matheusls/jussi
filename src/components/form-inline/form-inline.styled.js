@@ -11,6 +11,8 @@ import {
   typography,
 } from 'styled-system';
 
+export const formInlineProps = compose(layout, position, space);
+
 export const formInlineInputProps = compose(
   background,
   border,
@@ -33,7 +35,7 @@ export const FormInlineStyled = styled.form`
   position: relative;
   width: 100%;
 
-  ${layout}
+  ${formInlineProps}
 `;
 
 export const FormInlineInputStyled = styled.input`
