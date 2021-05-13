@@ -2,6 +2,7 @@ import { themeGet } from '@styled-system/theme-get';
 import styled from 'styled-components';
 
 export const NavbarStyled = styled.nav`
+  background-color: ${themeGet('colors.white')};
   padding: 1.25rem 1.5rem;
 `;
 
