@@ -9,6 +9,7 @@ export { default as HeaderHero } from './header-hero/header-hero';
 export { default as Heading } from './heading/heading';
 export { default as Icon } from './icon/icon';
 export { default as Image } from './image/image';
+export { default as LoadingDots } from './loading-dots/loading-dots';
 export { default as Navbar } from './navbar/navbar';
 export { default as SectionAbout } from './section-about/section-about';
 export { default as SectionContact } from './section-contact/section-contact';
