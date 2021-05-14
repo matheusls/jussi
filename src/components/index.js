@@ -4,6 +4,7 @@ export { default as Footer } from './footer/footer';
 export { default as FormInline } from './form-inline/form-inline';
 export { default as FormNewsletter } from './form-newsletter/form-newsletter';
 export { default as FormSearch } from './form-search/form-search';
+export { default as HeaderCard } from './header-card/header-card';
 export { default as HeaderHero } from './header-hero/header-hero';
 export { default as Heading } from './heading/heading';
 export { default as Icon } from './icon/icon';
