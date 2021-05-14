@@ -1,14 +1,15 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useAsyncFn } from 'react-use';
 
-import { FormInline, Icon, UnorderedList } from 'components';
+import { FormInline, Icon, LoadingDots, UnorderedList } from 'components';
+import { useOutsideClick } from 'hooks';
 import { getPeople } from 'services/swapi';
 
 import { FormSearchStyled } from './form-search.styled';
 
 const formProps = {
   position: 'relative',
-  zIndex: 1,
+  zIndex: 5,
 };
 
 const inputProps = {
@@ -41,11 +42,15 @@ const resultsListProps = {
   position: 'absolute',
   top: '1rem',
   width: '100%',
-  zIndex: '0',
+  zIndex: '3',
 };
 
 const FormSearch = () => {
   const [inputValue, setInputValue] = useState('');
+  const [shouldShowResults, setShouldShowResults] = useState(false);
+
+  const formRef = useRef(null);
+  const { hasClickedOutside } = useOutsideClick(formRef);
 
   const [{ loading, value }, makeRequest] = useAsyncFn(
     async () => await getPeople(),
@@ -61,10 +66,21 @@ const FormSearch = () => {
   const { results } = value || {};
 
   const isButtonDisabled = loading || !inputValue;
-  const hasResults = !!results;
+
+  useEffect(() => {
+    if (results) {
+      setShouldShowResults(true);
+    }
+  }, [results]);
+
+  useEffect(() => {
+    if (hasClickedOutside) {
+      setShouldShowResults(false);
+    }
+  }, [hasClickedOutside]);
 
   return (
-    <FormSearchStyled>
+    <FormSearchStyled ref={formRef}>
       <FormInline
         formProps={{
           ...formProps,
@@ -81,20 +97,26 @@ const FormSearch = () => {
           disabled: isButtonDisabled,
         }}
       />
-      {hasResults && (
+      {(shouldShowResults || loading) && (
         <UnorderedList {...resultsListProps}>
-          {results?.map(({ name }, i) => {
-            const isLastChild = i === results.length - 1;
+          {!loading &&
+            results?.map(({ name }, i) => {
+              const isLastChild = i === results.length - 1;
 
-            return (
-              <UnorderedList.Item
-                key={name}
-                marginBottom={`${!isLastChild ? '0.5rem' : ''}`}
-              >
-                {name}
-              </UnorderedList.Item>
-            );
-          })}
+              return (
+                <UnorderedList.Item
+                  key={name}
+                  marginBottom={`${!isLastChild ? '0.5rem' : ''}`}
+                >
+                  {name}
+                </UnorderedList.Item>
+              );
+            })}
+          {loading && (
+            <UnorderedList.Item>
+              <LoadingDots />
+            </UnorderedList.Item>
+          )}
         </UnorderedList>
       )}
     </FormSearchStyled>
