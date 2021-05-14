@@ -1,5 +1,4 @@
 import { shape, string } from 'prop-types';
-import { position } from 'styled-system';
 
 import { Button, Image } from 'components';
 
@@ -23,7 +22,7 @@ HeaderCard.propTypes = {
   altText: string.isRequired,
   buttonText: string.isRequired,
   image: string.isRequired,
-  positionProps: shape(position),
+  positionProps: shape({}),
 };
 
 export default HeaderCard;
