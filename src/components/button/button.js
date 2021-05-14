@@ -1,7 +1,7 @@
 import { themeGet } from '@styled-system/theme-get';
 import { oneOf, string } from 'prop-types';
 import { compose, layout, space } from 'styled-system';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { getButtonVariation, buttonVariations } from './get-button-variation';
 
@@ -23,6 +23,12 @@ const Button = styled.button.attrs(({ href }) => ({
   text-decoration: none;
 
   ${({ variation }) => (variation ? getButtonVariation(variation) : '')}
+
+  ${({ borderRadiusStyle }) =>
+    borderRadiusStyle === 'pill' &&
+    css`
+      border-radius: 24px;
+    `}
 
   ${compose(layout, space)}
 `;
