@@ -25,9 +25,9 @@ const SectionSolutions = () => (
       <Heading
         level={2}
         marginBottom="1.5rem"
-        quote={{
+        openQuote={{
           color: 'green',
-          size: 'xlarge',
+          size: '7rem',
         }}
       >
         Nossas soluções
