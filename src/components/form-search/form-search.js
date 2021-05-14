@@ -90,6 +90,7 @@ const FormSearch = () => {
           ...inputProps,
           value: inputValue,
           onChange: (e) => setInputValue(e.target.value),
+          onFocus: () => results && setShouldShowResults(true),
         }}
         buttonProps={{
           ...buttonProps,
